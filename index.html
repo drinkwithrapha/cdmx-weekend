@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///Users/HOME/Downloads/cdmx-weekend_2.html#day-1 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDMX · May 8–10, 2026 · Raphael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,100..900,0..100;1,9..144,100..900,0..100&family=JetBrains+Mono:wght@300..700&family=Newsreader:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<style>
+  :root {
+    --paper: #F2EBDC;
+    --paper-deep: #E8DEC8;
+    --ink: #181613;
+    --ink-soft: #3A342C;
+    --rosa: #D94D7B;
+    --cobalt: #1E3A8A;
+    --amarillo: #E8A52C;
+    --terracotta: #B8512A;
+    --oxblood: #5C1D1D;
+    --sage: #7A8B6C;
+    --hairline: rgba(24, 22, 19, 0.12);
+
+    /* ==== HERO IMAGES ====
+       Replace these with your own image URLs when you have them.
+       Path can be relative ('images/friday.jpg') or absolute.
+       Leave as 'none' to use the CSS-only editorial fallback. */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 15% 30%, rgba(217, 77, 123, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 85% 70%, rgba(30, 58, 138, 0.04) 0%, transparent 50%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--rosa);
+    color: var(--paper);
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    z-index: 100;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    padding: 3rem 6vw 4rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+
+  .crest {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: 'SOFT' 80;
+    font-size: 1.1rem;
+    color: var(--oxblood);
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-meta > div {
+    border-left: 1px solid var(--hairline);
+    padding-left: 1rem;
+  }
+
+  .hero-meta span {
+    display: block;
+  }
+
+  .hero-meta .label {
+    color: var(--ink-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
+    font-size: clamp(6rem, 22vw, 20rem);
+    line-height: 0.82;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 0;
+    animation: titleIn 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  @keyframes titleIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 .i {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rosa);
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  }
+
+  .hero-sub {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    animation: fadeIn 1.5s 0.4s both cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-sub .dates {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--cobalt);
+    font-variation-settings: 'SOFT' 100;
+  }
+
+  .hero-sub .prep {
+    font-family: 'Newsreader', serif;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 32rem;
+    font-style: italic;
+  }
+
+  /* Weather ribbon */
+  .weather-ribbon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    margin-top: 4rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+
+  .weather-ribbon .day-weather {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+  }
+
+  .weather-ribbon .day-weather:hover {
+    opacity: 0.6;
+  }
+
+  .weather-ribbon .day-weather .d {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+
+  .weather-ribbon .day-weather .t {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-variation-settings: 'SOFT' 60;
+  }
+
+  .weather-ribbon .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--amarillo);
+    background: var(--ink);
+    padding: 0.5rem 0.9rem;
+  }
+
+  /* Decorative numeral on hero */
+  .hero-decor {
+    position: absolute;
+    right: -4vw;
+    bottom: -4vw;
+    font-family: 'Fraunces', serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 40vw;
+    line-height: 0.8;
+    color: var(--rosa);
+    opacity: 0.08;
+    pointer-events: none;
+    font-variation-settings: 'SOFT' 100;
+    user-select: none;
+  }
+
+  /* ---------- STATS BAND ---------- */
+  .stats {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 6vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .stats .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .stats .stat .n {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-style: italic;
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 300;
+    color: var(--amarillo);
+  }
+
+  .stats .stat .l {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--paper-deep);
+  }
+
+  /* ---------- RESERVATION CALLOUT ---------- */
+  .reservations {
+    background: var(--rosa);
+    color: var(--paper);
+    padding: 3rem 6vw;
+    position: relative;
+  }
+
+  .reservations-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .reservations h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 0.95;
+    color: var(--paper);
+  }
+
+  .reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .res-item {
+    border-top: 1px solid rgba(242, 235, 220, 0.3);
+    padding-top: 1rem;
+  }
+
+  .res-item .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 50;
+    margin-bottom: 0.3rem;
+  }
+
+  .res-item .when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-bottom: 0.4rem;
+  }
+
+  .res-item .note {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(242, 235, 220, 0.9);
+  }
+
+  /* ---------- DAY SECTIONS ---------- */
+  .day {
+    padding: 0;
+    position: relative;
+  }
+
+  .day-1 { --accent: var(--rosa); --accent-soft: #F5D7DD; }
+  .day-2 { --accent: var(--cobalt); --accent-soft: #D5DBE8; }
+  .day-3 { --accent: var(--amarillo); --accent-soft: #F2E2B8; }
+
+  .day-header {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 4rem 6vw 0;
+  }
+
+  .day-marker {
+    display: none; /* now shown in .day-hero-marker */
+  }
+
+  .day-title h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-variation-settings: 'opsz' 144, 'SOFT' 40;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .day-title .date-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  .day-title .blurb {
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 40rem;
+    line-height: 1.5;
+  }
+  
+
+  /* ---------- STOPS ---------- */
+  .stops {
+    display: grid;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6vw;
+  }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--hairline);
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .stop:hover {
+    background: var(--accent-soft);
+  }
+
+  .stop:hover .stop-num {
+    color: var(--accent);
+  }
+
+  .stop:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .stop-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .stop-time .t {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    font-variation-settings: 'SOFT' 30;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stop-time .dur {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .stop-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .stop-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stop-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    font-variation-settings: 'SOFT' 40;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .stop-name .i {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .stop-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+  }
+
+  .stop-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+  }
+
+  .tag.tag-taco { background: var(--terracotta); color: var(--paper); border-color: var(--terracotta); }
+  .tag.tag-dining { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .tag.tag-museum { background: var(--cobalt); color: var(--paper); border-color: var(--cobalt); }
+  .tag.tag-architecture { background: var(--sage); color: var(--paper); border-color: var(--sage); }
+  .tag.tag-landmark { background: var(--oxblood); color: var(--paper); border-color: var(--oxblood); }
+  .tag.tag-outdoor { background: var(--paper); color: var(--sage); border-color: var(--sage); }
+  .tag.tag-drinks { background: var(--rosa); color: var(--paper); border-color: var(--rosa); }
+
+  .stop-notes {
+    font-family: 'Newsreader', serif;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 55rem;
+  }
+
+  .stop-links {
+    margin-top: 0.9rem;
+    display: flex;
+    gap: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .stop-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  }
+  .stop-links a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+
+  /* ---------- DAY TABS ---------- */
+  .day-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .day-tab {
+    padding: 1.4rem 1.5rem;
+    border: none;
+    border-right: 1px solid var(--hairline);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  .day-tab:last-child { border-right: none; }
+  .day-tab:hover { background: rgba(24, 22, 19, 0.05); }
+
+  .day-tab[data-target="day-1"].active { background: var(--rosa); color: var(--paper); }
+  .day-tab[data-target="day-2"].active { background: var(--cobalt); color: var(--paper); }
+  .day-tab[data-target="day-3"].active { background: var(--amarillo); color: var(--ink); }
+
+  .day-tab .tab-num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    opacity: 0.75;
+  }
+
+  .day-tab .tab-label {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.15rem;
+    font-variation-settings: 'SOFT' 40;
+    line-height: 1.1;
+  }
+
+  .day[hidden] { display: none; }
+
+  /* ---------- STOP LINKS ---------- */
+  .stop-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .stop-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .stop-links a:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+
+  /* ---------- WEATHER LINK ---------- */
+  .weather-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: all 0.2s ease;
+  }
+  .weather-link:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+
+  @media (max-width: 768px) {
+    .day-tabs { grid-template-columns: 1fr; }
+    .day-tab { border-right: none; border-bottom: 1px solid var(--hairline); padding: 1rem 1.2rem; }
+    .day-tab:last-child { border-bottom: none; }
+  }
+
+  /* ---------- TRANSIT SECTION ---------- */
+  .transit {
+    background: var(--paper-deep);
+    padding: 5rem 6vw 4rem;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .transit-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .transit-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .transit-head .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+  }
+
+  .transit h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 0.95;
+    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+    color: var(--ink);
+  }
+
+  .conf-badge {
+    border: 1px solid var(--ink);
+    padding: 0.8rem 1.2rem;
+    background: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .conf-badge .lbl {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .conf-badge .code {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--oxblood);
+  }
+
+  .flight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .flight-card {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 2rem;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .flight-card .flight-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rosa);
+    margin-bottom: 0.6rem;
+  }
+
+  .flight-card .flight-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    font-variation-settings: 'SOFT' 40;
+  }
+
+  .flight-route {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .flight-endpoint .iata {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1;
+    font-variation-settings: 'opsz' 144, 'SOFT' 40;
+    display: block;
+    color: var(--ink);
+  }
+  .flight-endpoint .time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cobalt);
+    display: block;
+    margin-top: 0.3rem;
+  }
+  .flight-endpoint .place {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: block;
+  }
+
+  .flight-arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: var(--rosa);
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .ground-leg {
+    border-top: 1px dashed var(--hairline);
+    padding-top: 1rem;
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .ground-leg strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .transit-notes {
+    font-family: 'Newsreader', serif;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 52rem;
+    border-top: 1px solid var(--hairline);
+    padding-top: 1.5rem;
+  }
+  .transit-notes strong {
+    color: var(--oxblood);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .transit { padding: 3.5rem 5vw 2.5rem; }
+    .transit-head { grid-template-columns: 1fr; }
+    .flight-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .flight-card { padding: 1.5rem; box-shadow: 3px 3px 0 var(--ink); }
+    .flight-endpoint .iata { font-size: 1.8rem; }
+  }
+
+  /* ---------- COST PILL (on stops) ---------- */
+  .tag.tag-cost {
+    background: rgba(24, 22, 19, 0.06);
+    border-color: transparent;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .tag.tag-free {
+    background: var(--sage);
+    color: var(--paper);
+    border-color: var(--sage);
+  }
+
+  /* ---------- RESERVATION LINKS ---------- */
+  .res-item .name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 235, 220, 0.4);
+    transition: border-color 0.2s ease;
+  }
+  .res-item .name a:hover {
+    border-bottom-color: var(--paper);
+  }
+
+  /* ---------- DAYS TAB SYSTEM ---------- */
+  .days-wrapper {
+    position: relative;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .days-tab-nav {
+    display: flex;
+    align-items: stretch;
+    background: var(--paper);
+    border-bottom: 1px solid var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .days-tab-nav::-webkit-scrollbar { display: none; }
+
+  .days-tab-nav .tab-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-right: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+
+  .tab-btn {
+    flex: 1 1 0;
+    min-width: 180px;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-right: 1px solid var(--hairline);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease, color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: inherit;
+    color: var(--ink-soft);
+  }
+
+  .tab-btn:last-child {
+    border-right: none;
+  }
+
+  .tab-btn .tab-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  }
+
+  .tab-btn .tab-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .tab-btn:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+
+  .tab-btn.active[data-day="1"] {
+    background: var(--rosa);
+    color: var(--paper);
+  }
+  .tab-btn.active[data-day="2"] {
+    background: var(--cobalt);
+    color: var(--paper);
+  }
+  .tab-btn.active[data-day="3"] {
+    background: var(--amarillo);
+    color: var(--ink);
+  }
+
+  .days-viewport {
+    position: relative;
+    overflow: hidden;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .days-rail {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: flex-start;
+  }
+
+  .days-rail > .day {
+    flex: 0 0 33.3333%;
+    min-width: 33.3333%;
+    border-top: none; /* override old border since wrapper has it */
+    padding-top: 0;
+  }
+
+  /* ---------- DAY HERO IMAGE ---------- */
+  .day-hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 360px;
+    max-height: 560px;
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--accent, var(--ink));
+  }
+
+  .day-1 .day-hero { background-color: var(--rosa); }
+  .day-2 .day-hero { background-color: var(--cobalt); }
+  .day-3 .day-hero { background-color: var(--amarillo); }
+
+  .day-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.1);
+    mix-blend-mode: luminosity;
+    opacity: 0.95;
+  }
+
+  .day-hero figcaption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 2rem;
+    right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+    mix-blend-mode: difference;
+    opacity: 0.85;
+    z-index: 3;
+  }
+
+  .day-hero-marker {
+    position: absolute;
+    bottom: 0;
+    right: 2rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 200;
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-size: clamp(10rem, 28vw, 26rem);
+    line-height: 0.8;
+    color: var(--paper);
+    mix-blend-mode: difference;
+    opacity: 0.9;
+    pointer-events: none;
+    letter-spacing: -0.04em;
+    z-index: 2;
+  }
+
+  .days-hint {
+    text-align: center;
+    padding: 1.2rem 6vw;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+
+  .days-hint .nav-arrow {
+    opacity: 0.5;
+    margin: 0 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .days-tab-nav .tab-label { display: none; }
+    .tab-btn { min-width: 140px; padding: 1rem; }
+    .tab-btn .tab-num { font-size: 1.2rem; }
+    .tab-btn .tab-meta { font-size: 0.6rem; }
+    .day-hero { height: 40vh; min-height: 280px; }
+    .day-hero-marker { right: 1rem; font-size: clamp(7rem, 24vw, 14rem); }
+    .day-hero figcaption { left: 1rem; right: 1rem; bottom: 1rem; }
+  }
+
+  /* ---------- ROUTES MAP ---------- */
+  .routes {
+    padding: 6rem 6vw 5rem;
+    background: var(--paper);
+    border-top: 1px solid var(--hairline);
+    position: relative;
+  }
+
+  .routes-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .routes-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .routes h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+  }
+
+  .routes h2 .accent {
+    color: var(--rosa);
+  }
+
+  .routes-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .routes-lede {
+    font-family: 'Newsreader', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 26rem;
+    line-height: 1.5;
+  }
+
+  .day-toggles {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .day-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 400;
+  }
+
+  .day-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .day-btn.active[data-day="all"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .day-btn.active[data-day="day1"] {
+    background: var(--rosa);
+    border-color: var(--rosa);
+    color: var(--paper);
+  }
+  .day-btn.active[data-day="day2"] {
+    background: var(--cobalt);
+    border-color: var(--cobalt);
+    color: var(--paper);
+  }
+  .day-btn.active[data-day="day3"] {
+    background: var(--amarillo);
+    border-color: var(--amarillo);
+    color: var(--ink);
+  }
+
+  .map-frame {
+    position: relative;
+    border: 1px solid var(--ink);
+    background: var(--paper-deep);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  #map {
+    height: 65vh;
+    min-height: 480px;
+    width: 100%;
+    background: var(--paper-deep);
+    filter: saturate(0.85);
+  }
+
+  /* Custom marker styling */
+  .custom-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .marker-pin {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    border: 2px solid var(--paper);
+    box-shadow: 0 3px 8px rgba(24, 22, 19, 0.35);
+    transition: transform 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+  }
+
+  .marker-pin:hover {
+    transform: scale(1.18);
+  }
+
+  .marker-pin.day1-pin { background: var(--rosa); }
+  .marker-pin.day2-pin { background: var(--cobalt); }
+  .marker-pin.day3-pin { background: var(--amarillo); color: var(--ink); }
+
+  /* Leaflet popup override */
+  .leaflet-popup-content-wrapper {
+    background: var(--paper);
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 0;
+  }
+  .leaflet-popup-content {
+    margin: 14px 18px;
+    font-family: 'Newsreader', serif;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .leaflet-popup-content .pop-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 40;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .leaflet-popup-content .pop-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .leaflet-popup-tip {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .leaflet-popup-close-button {
+    color: var(--ink-soft) !important;
+    font-size: 18px !important;
+    padding: 6px 8px 0 0 !important;
+  }
+  .leaflet-container {
+    font-family: 'Newsreader', serif;
+  }
+  .leaflet-control-attribution {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px !important;
+    background: rgba(242, 235, 220, 0.85) !important;
+  }
+  .leaflet-control-zoom a {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink) !important;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+  }
+
+  .map-legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+  .legend-dot.d1 { background: var(--rosa); }
+  .legend-dot.d2 { background: var(--cobalt); }
+  .legend-dot.d3 { background: var(--amarillo); }
+
+  @media (max-width: 768px) {
+    .routes { padding: 4rem 5vw 3rem; }
+    .routes-head { grid-template-columns: 1fr; }
+    #map { height: 60vh; min-height: 400px; }
+    .map-frame { box-shadow: 4px 4px 0 var(--ink); }
+  }
+
+  /* ---------- PASTOR FLIGHT BOX ---------- */
+  .pastor-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 6vw;
+    margin-top: 0;
+  }
+
+  .pastor-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .pastor-inner .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amarillo);
+    margin-bottom: 1rem;
+  }
+
+  .pastor-inner h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  }
+
+  .pastor-inner h3 .i {
+    font-style: normal;
+    color: var(--rosa);
+  }
+
+  .pastor-flight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .pastor-item {
+    border-top: 1px solid rgba(242, 235, 220, 0.25);
+    padding-top: 1.2rem;
+  }
+
+  .pastor-item .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--amarillo);
+    margin-bottom: 0.5rem;
+    font-variation-settings: 'SOFT' 100;
+  }
+
+  .pastor-item .where {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    font-variation-settings: 'SOFT' 40;
+  }
+
+  .pastor-item .note {
+    font-size: 0.92rem;
+    color: var(--paper-deep);
+    line-height: 1.45;
+  }
+
+  /* ---------- PRACTICAL ---------- */
+  .practical {
+    padding: 6rem 6vw 4rem;
+    background: var(--paper-deep);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .practical-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .practical h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+  }
+
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+  }
+
+  .practical-item h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--oxblood);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .practical-item p {
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 3rem 6vw 4rem;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+  }
+
+  footer .sig {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2rem, 6vw, 5rem);
+    line-height: 0.9;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  }
+
+  footer .sig .accent {
+    color: var(--rosa);
+  }
+
+  footer .coords {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--paper-deep);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .hero { padding: 2rem 5vw 3rem; }
+    .hero-meta { gap: 1rem; }
+    .hero-meta > div { padding-left: 0.7rem; }
+    .weather-ribbon { gap: 1rem; flex-direction: column; align-items: flex-start; }
+
+    .reservations-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .day { padding: 4rem 5vw 2rem; }
+    .day-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .day-marker { font-size: 6rem; }
+
+    .stop { grid-template-columns: 80px 1fr; gap: 1.5rem; padding: 1.5rem 0; }
+    .stop-time .t { font-size: 1.1rem; }
+    .stop-name { font-size: 1.3rem; }
+    .pastor-box { padding: 3rem 5vw; }
+    .practical { padding: 4rem 5vw 2rem; }
+
+    footer { grid-template-columns: 1fr; padding: 2rem 5vw 3rem; }
+    footer .coords { text-align: left; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="crest">Drink with Rapha × Travel Dossier № 001</div>
+    <div class="hero-meta">
+      <div>
+        <span class="label">Base</span>
+        <span><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--hairline);">Mondrian Condesa</a></span>
+      </div>
+      <div>
+        <span class="label">Field agent</span>
+        <span>Raphael Ventresca</span>
+      </div>
+      <div>
+        <span class="label">Filed</span>
+        <span>Houston → MEX</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <h1>M<span class="i">é</span>xico</h1>
+    <div class="hero-sub">
+      <span class="dates">A weekend in three acts · May 8–10, 2026</span>
+    </div>
+    <div class="hero-sub">
+      <span class="prep">Condesa as base camp. Antropología on Friday afternoon. Centro on Saturday. Plaza Carso on Sunday morning. Eight taquerías woven in, two pastor trompos compared, one weekends-only barbacoa breakfast, two long Roma dinners, one flight in and one flight out.</span>
+    </div>
+  </div>
+
+  <div class="weather-ribbon">
+    <a class="day-weather" href="https://www.accuweather.com/en/mx/mexico-city/242560/daily-weather-forecast/242560" target="_blank" rel="noopener" title="AccuWeather · Mexico City forecast">
+      <span class="d">Fri 8</span>
+      <span class="t">81° / 54°</span>
+    </a>
+    <a class="day-weather" href="https://www.accuweather.com/en/mx/mexico-city/242560/daily-weather-forecast/242560" target="_blank" rel="noopener" title="AccuWeather · Mexico City forecast">
+      <span class="d">Sat 9</span>
+      <span class="t">79° / 55°</span>
+    </a>
+    <a class="day-weather" href="https://www.accuweather.com/en/mx/mexico-city/242560/daily-weather-forecast/242560" target="_blank" rel="noopener" title="AccuWeather · Mexico City forecast">
+      <span class="d">Sun 10</span>
+      <span class="t">79° / 54°</span>
+    </a>
+    <span class="tag">Dry season · slim rain risk pm</span>
+  </div>
+
+  <div class="hero-decor">cdmx</div>
+</section>
+
+<!-- ==================== TRANSIT ==================== -->
+<section class="transit">
+  <div class="transit-inner">
+    <div class="transit-head">
+      <div>
+        <div class="eyebrow">The transit leg</div>
+        <h2>Houston → <em style="font-style:italic;">México</em> → Houston</h2>
+      </div>
+      <div class="conf-badge">
+        <span class="lbl">Confirmation</span>
+        <span class="code">I5JLMX</span>
+      </div>
+    </div>
+
+    <div class="flight-grid">
+      <div class="flight-card">
+        <div class="flight-label">Outbound · Fri May 8, 2026</div>
+        <div class="flight-num">UA 1060 · United Economy (YN)</div>
+        <div class="flight-route">
+          <div class="flight-endpoint">
+            <span class="iata">IAH</span>
+            <span class="time">09:26</span>
+            <span class="place">Houston</span>
+          </div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-endpoint">
+            <span class="iata">MEX</span>
+            <span class="time">10:45</span>
+            <span class="place">México, Terminal 1</span>
+          </div>
+        </div>
+        <div class="ground-leg">
+          <strong>↓ Uber MEX T1 → Mondrian Condesa.</strong> ~35 min midday. Budget ~400 MXN / $20 USD. Use the designated rideshare pickup zone at T1 exit, not the taxi curb.
+        </div>
+      </div>
+
+      <div class="flight-card">
+        <div class="flight-label">Return · Sun May 10, 2026</div>
+        <div class="flight-num">UA 1025 · United Economy (XN)</div>
+        <div class="flight-route">
+          <div class="flight-endpoint">
+            <span class="iata">MEX</span>
+            <span class="time">16:40</span>
+            <span class="place">México, Terminal 1</span>
+          </div>
+          <div class="flight-arrow">→</div>
+          <div class="flight-endpoint">
+            <span class="iata">IAH</span>
+            <span class="time">20:00</span>
+            <span class="place">Houston</span>
+          </div>
+        </div>
+        <div class="ground-leg">
+          <strong>↑ Uber Mondrian → MEX T1.</strong> Leave hotel by 12:55 PM to arrive MEX by 1:40 PM — three hours before the 4:40 PM departure. Sunday afternoon traffic can push the drive to 60 min. ~400 MXN / $20 USD.
+        </div>
+      </div>
+    </div>
+
+    <div class="transit-notes">
+      <strong>Airport logistics</strong>
+      United operates from MEX Terminal 1. Arriving 3 hours before the 4:40 PM Sunday return means hitting MEX by 1:40 PM — which means leaving the Mondrian by 12:55 PM at the latest. Immigration on arrival Friday runs ~45 min for main-cabin passengers without Global Entry. The Mondrian holds bags if the room isn't ready at 12:45 PM check-in (rooms guaranteed at 3 PM, but early check-in is part of your negotiated perks).
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS ==================== -->
+<section class="stats">
+  <div class="stat"><span class="n">8</span><span class="l">Taquerías on rotation</span></div>
+  <div class="stat"><span class="n">2</span><span class="l">Pastor trompos compared</span></div>
+  <div class="stat"><span class="n">10</span><span class="l">Museums &amp; landmarks</span></div>
+  <div class="stat"><span class="n">3</span><span class="l">Neighborhoods, no more</span></div>
+  <div class="stat"><span class="n">2</span><span class="l">Tasting-level dinners</span></div>
+</section>
+
+<!-- ==================== RESERVATIONS ==================== -->
+<section class="reservations">
+  <div class="reservations-inner">
+    <h2>Book<br>in<br><em style="font-style: italic;">advance.</em></h2>
+    <div class="reservations-list">
+      <div class="res-item">
+        <div class="name"><a href="https://rosetta.com.mx/" target="_blank" rel="noopener">Rosetta</a></div>
+        <div class="when">Sat 8:30 pm · rosetta.com.mx</div>
+        <div class="note">Book 2–3 weeks out. Request the upstairs dining room if possible; the street-side patio is its own thing.</div>
+      </div>
+      <div class="res-item">
+        <div class="name"><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Torre Latinoamericana</a></div>
+        <div class="when">Sat 5:45 pm · miradortorrelatino.com</div>
+        <div class="note">Skip-the-line tickets online save ~30 min of queueing for the 44th-floor observation deck. ~220 MXN.</div>
+      </div>
+      <div class="res-item">
+        <div class="name">Museo Nacional de Antropología</div>
+        <div class="when">Fri 2:15 pm · at-door tickets</div>
+        <div class="note">No online ticketing. Walk up to the main entrance on Reforma. ~210 MXN for foreigners, card accepted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROUTES MAP ==================== -->
+<section class="routes">
+  <div class="routes-inner">
+    <div class="routes-head">
+      <div>
+        <div class="routes-eyebrow">The spatial logic</div>
+        <h2>Three days, <span class="accent">three colors.</span></h2>
+      </div>
+      <p class="routes-lede">Tap a day to isolate its route. Tap any marker for the stop name and time.</p>
+    </div>
+
+    <div class="day-toggles" role="tablist">
+      <button class="day-btn" data-day="all">All routes</button>
+      <button class="day-btn" data-day="day1">Friday · 01</button>
+      <button class="day-btn" data-day="day2">Saturday · 02</button>
+      <button class="day-btn active" data-day="day3">Sunday · 03</button>
+    </div>
+
+    <div class="map-frame">
+      <div id="map" aria-label="Interactive map of Mexico City itinerary stops"></div>
+    </div>
+
+    <div class="map-legend">
+      <div class="legend-item"><span class="legend-dot d1"></span>Friday · Condesa, Chapultepec, Roma</div>
+      <div class="legend-item"><span class="legend-dot d2"></span>Saturday · Centro Histórico</div>
+      <div class="legend-item"><span class="legend-dot d3"></span>Sunday · Plaza Carso &amp; Roma walk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DAY TABS & RAIL ==================== -->
+<div class="days-wrapper">
+  <nav class="days-tab-nav" role="tablist" aria-label="Itinerary days">
+    <div class="tab-label">Day →</div>
+    <button class="tab-btn active" data-day="1" role="tab" aria-selected="true" aria-controls="day-1">
+      <span class="tab-num">01</span>
+      <span class="tab-meta">Friday · Arrival</span>
+    </button>
+    <button class="tab-btn" data-day="2" role="tab" aria-selected="false" aria-controls="day-2">
+      <span class="tab-num">02</span>
+      <span class="tab-meta">Saturday · Centro</span>
+    </button>
+    <button class="tab-btn" data-day="3" role="tab" aria-selected="false" aria-controls="day-3">
+      <span class="tab-num">03</span>
+      <span class="tab-meta">Sunday · Depart</span>
+    </button>
+  </nav>
+
+  <div class="days-viewport" id="days-viewport" style="height: 2348px;">
+    <div class="days-rail" id="days-rail" style="transform: translateX(0%);">
+<!-- ==================== DAY 1 ==================== -->
+<section class="day day-1" id="day-1">
+  <figure class="day-hero">
+    <img src="file:///Users/HOME/Downloads/images/day-1.jpg" alt="Antropología and the Mexica Sun Stone" loading="lazy" onerror="this.style.display=&#39;none&#39;" style="display: none;">
+    <span class="day-hero-marker">01</span>
+    <figcaption>Museo Nacional de Antropología · Sala Mexica, Chapultepec</figcaption>
+  </figure>
+
+  <div class="day-header reveal in">
+    <div class="day-title">
+      <div class="date-line">Friday · May 8 · Arrival · Land 10:45 AM</div>
+      <h2>Mondrian by one, tacos by one-fifteen, anthropology until close.</h2>
+      <p class="blurb">No morning anchor — land, breathe, eat, then head into Chapultepec for Antropología. The museum closes at 5 PM, so the afternoon is built around it. Evening unwinds in Condesa and Roma, with Café Tacobar pulling double duty as dinner and mezcal bar.</p>
+    </div>
+  </div>
+
+  <div class="stops">
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">12:45</span><span class="dur">30 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name"><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--rosa);">Mondrian Condesa</a></div>
+          <div class="stop-num">01 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag">Bag drop</span>
+          <span class="tag tag-cost">~400 MXN Uber from MEX</span>
+        </div>
+        <div class="stop-notes">Your booking includes $100 property credit, early check-in, late check-out, and a room upgrade subject to availability — mention the perks at check-in. If the room isn't ready, bell desk holds bags. Splash water, change shirts, grab a cortado at the lobby café.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ1Qr-1aH_0YURK9bEfxCa9Ng" target="_blank" rel="noopener">Map ↗</a><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">1:15</span><span class="dur">45 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Tacos <span class="i">Hola El Güero</span></div>
+          <div class="stop-num">02 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Tacos</span>
+          <span class="tag tag-cost">~150–250 MXN</span>
+        </div>
+        <div class="stop-notes">Guisados counter on Amsterdam, two blocks from the hotel. Order chicharrón en salsa verde, tinga de pollo, and whichever estofado looks best. Standing on the sidewalk is the experience. This is your guisados baseline for the pastor study later.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJZeIEDEH_0YURpQ_UHx0ZTTo" target="_blank" rel="noopener">Map ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">2:15</span><span class="dur">2.5 hr</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Museo Nacional de <span class="i">Antropología</span></div>
+          <div class="stop-num">03 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-museum">World-class</span>
+          <span class="tag tag-cost">~210 MXN + 85 audio</span>
+        </div>
+        <div class="stop-notes">Uber from Condesa, ~15 min. Pedro Ramírez Vázquez's 1964 masterpiece. The Piedra del Sol, the Olmec colossal heads, the reconstructed tomb of Pakal from Palenque, Teotihuacan reproductions. Two floors — ground floor by region is the greatest-hits path: Teotihuacan → Mexica → Oaxaca → Maya. Audio guide worth renting; most labels are Spanish-only. Closes 5 PM sharp, last entry 4:30.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJScjIILQB0oURJMVub-MaI4Q" target="_blank" rel="noopener">Map ↗</a><a href="https://www.mna.inah.gob.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">5:30</span><span class="dur">45 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Parque México &amp; Parque España</div>
+          <div class="stop-num">04 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-outdoor">Outdoor</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Uber back to Condesa, loop the art deco park, drift east into Parque España. Good reset after the museum intensity.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJmTbz6UD_0YURbXm-StqH-LI" target="_blank" rel="noopener">Map ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">6:30</span><span class="dur">60 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Plaza Río de Janeiro &amp; Roma galleries</div>
+          <div class="stop-num">05 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-outdoor">Walk</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Walk east through Condesa into Roma Norte. David replica at center of Plaza Río, Porfirian mansions around, galleries concentrated on Colima and Álvaro Obregón. Brief evening browse before dinner.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJU3dCnDD_0YURHKMnEaBYNrs" target="_blank" rel="noopener">Map ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">8:00</span><span class="dur">150 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Café <span class="i">Tacobar</span></div>
+          <div class="stop-num">06 / 06</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-dining">Dinner &amp; drinks</span>
+          <span class="tag tag-taco">Tacos</span>
+          <span class="tag tag-cost">~600–900 MXN pp</span>
+        </div>
+        <div class="stop-notes">Dinner + mezcal in one session. Chris the owner runs a serious mezcal program and the tacos off the griddle hold up as a real meal — barbacoa and al pastor, plus the chicken Josh Weissman put on the map. Ask about chilcuague root. Closed Sunday and Monday, so Friday is the call.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJDeWr2JT_0YURtBo7LSUf7iE" target="_blank" rel="noopener">Map ↗</a><a href="https://cafetacobar.com.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DAY 2 ==================== -->
+<section class="day day-2" id="day-2">
+  <figure class="day-hero">
+    <img src="file:///Users/HOME/Downloads/images/day-2.jpg" alt="Bellas Artes at golden hour" loading="lazy" onerror="this.style.display=&#39;none&#39;" style="display: none;">
+    <span class="day-hero-marker">02</span>
+    <figcaption>Palacio de Bellas Artes · Centro Histórico</figcaption>
+  </figure>
+
+  <div class="day-header reveal in">
+    <div class="day-title">
+      <div class="date-line">Saturday · May 9 · Centro Histórico</div>
+      <h2>Barbacoa breakfast, three pastor stations, Rivera's History of Mexico.</h2>
+      <p class="blurb">One neighborhood, all day, logical walking loop from Zócalo to Alameda. Don't over-order at lunch; there's another taco at 3:30 and a Rosetta tasting coming.</p>
+    </div>
+  </div>
+
+  <div class="stops">
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">8:30</span><span class="dur">75 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">El <span class="i">Hidalguense</span></div>
+          <div class="stop-num">01 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Barbacoa</span>
+          <span class="tag">Weekends only</span>
+          <span class="tag tag-cost">~400–600 MXN pp</span>
+        </div>
+        <div class="stop-notes">Lamb steamed in maguey leaves with consomé, fresh tortillas, three salsas. Arrive by 9 to beat the line. Order the mixiote de borrego; the ant-butter guacamole is a full-course commitment, not a side.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJhZ_ytT__0YURRb-fzYtU7AQ" target="_blank" rel="noopener">Map ↗</a><a href="https://www.facebook.com/el.hidalguense.5" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">10:15</span><span class="dur">75 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Palacio <span class="i">Nacional</span></div>
+          <div class="stop-num">02 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-landmark">Murals</span>
+          <span class="tag">Passport</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Free with passport. Straight to Rivera's History of Mexico on the grand stairwell — pre-Columbian on the right, revolution on the left. Second-floor corridor continues the cycle.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ8ZWV2cz-0YUR_dZtPvUaOPc" target="_blank" rel="noopener">Map ↗</a><a href="https://www.gob.mx/palacionacional" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">11:45</span><span class="dur">90 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Templo Mayor</div>
+          <div class="stop-num">03 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-museum">Ruins &amp; museum</span>
+          <span class="tag tag-cost">~210 MXN foreign</span>
+        </div>
+        <div class="stop-notes">The Coyolxauhqui stone alone earns the ticket. Bilingual signage; give the museum 45 minutes after the outdoor walk.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ3dGBci350YURsDYUZcq-kIw" target="_blank" rel="noopener">Map ↗</a><a href="https://www.inah.gob.mx/zonas/zona-arqueologica-templo-mayor" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">1:30</span><span class="dur">45 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Los <span class="i">Cocuyos</span></div>
+          <div class="stop-num">04 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Tacos</span>
+          <span class="tag">Counter</span>
+          <span class="tag tag-cost">~100–200 MXN pp</span>
+        </div>
+        <div class="stop-notes">Bourdain's CDMX taco stop. Campechano (suadero + chorizo), cabeza, and tripa if you're game. Stand at the counter, order two, keep moving.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJs1uZdNP-0YUR7xEuCTGxAMM" target="_blank" rel="noopener">Map ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">2:30</span><span class="dur">25 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Catedral Metropolitana</div>
+          <div class="stop-num">05 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-landmark">Cathedral</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Built with stones from the Aztec sacred precinct you just stood on. Brief interior walk-through, note the subsidence that tilts the floor.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ4a8nxjL50YURJ19RJ_A9T5E" target="_blank" rel="noopener">Map ↗</a><a href="https://catedralmetropolitana.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">3:00</span><span class="dur">20 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Casa de los Azulejos</div>
+          <div class="stop-num">06 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-architecture">Architecture</span>
+          <span class="tag tag-free">Free entry</span>
+        </div>
+        <div class="stop-notes">Step in for the tiled courtyard and the Orozco mural on the main staircase. Skip the Sanborns restaurant.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJL0UaXyv50YURNyz05p6HsQg" target="_blank" rel="noopener">Map ↗</a><a href="https://www.sanborns.com.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">3:30</span><span class="dur">30 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Tacos <span class="i">El Huequito</span></div>
+          <div class="stop-num">07 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Al pastor</span>
+          <span class="tag">Since 1959</span>
+          <span class="tag tag-cost">~80–150 MXN pp</span>
+        </div>
+        <div class="stop-notes">Two blocks off Madero. Two tacos at the window counter. Lean, marinated pork off the original trompo — a very different animal from Los Cocuyos' griddle meats.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJczgiA9X-0YURqRON9mN1nMA" target="_blank" rel="noopener">Map ↗</a><a href="https://www.elhuequito.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">4:15</span><span class="dur">75 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Palacio de <span class="i">Bellas Artes</span></div>
+          <div class="stop-num">08 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-museum">Museum</span>
+          <span class="tag tag-cost">~95 MXN</span>
+        </div>
+        <div class="stop-notes">Pay the ~95 MXN museum ticket for the upper floors. Rivera's recreation of Man at the Crossroads plus Orozco and Siqueiros. Art Nouveau outside, Art Deco inside.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJTQGqdSv50YURz-imDdIQ2Bc" target="_blank" rel="noopener">Map ↗</a><a href="https://palacio.inba.gob.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">5:45</span><span class="dur">60 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Torre <span class="i">Latinoamericana</span></div>
+          <div class="stop-num">09 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-landmark">Viewpoint</span>
+          <span class="tag tag-cost">~220 MXN</span>
+        </div>
+        <div class="stop-notes">Timed for golden hour over Bellas Artes. The building survived the 1957 and 1985 earthquakes — it's a landmark of Mexican mid-century engineering as much as a view.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJMc6vWiv50YURY1rtNDuRw2E" target="_blank" rel="noopener">Map ↗</a><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">8:30</span><span class="dur">150 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Rosetta</div>
+          <div class="stop-num">11 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-dining">Dinner</span>
+          <span class="tag">Reservation</span>
+          <span class="tag tag-cost">~1,800–3,000 MXN pp</span>
+        </div>
+        <div class="stop-notes">Elena Reygadas's flagship in a restored Porfirian mansion on Colima. Pasta-forward Italian-Mexican, serious natural wine list. Closed Sunday — lock Saturday night.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJdSGAWgP_0YURwNtY7rftf2E" target="_blank" rel="noopener">Map ↗</a><a href="https://rosetta.com.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal">
+      <div class="stop-time"><span class="t">11:30</span><span class="dur">45 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Taquería <span class="i">Los Parados</span></div>
+          <div class="stop-num">12 / 12</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Pastor</span>
+          <span class="tag">Until 4 AM</span>
+          <span class="tag tag-cost">~100–250 MXN pp</span>
+        </div>
+        <div class="stop-notes">Standing counter on Monterrey. Al pastor and bistec. Third pastor comparison of the day — each one's different. Aggressive char here, more so than El Huequito.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJsyICZBb_0YURFFEjAh6qYBo" target="_blank" rel="noopener">Map ↗</a><a href="https://www.los-parados.com/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DAY 3 ==================== -->
+<section class="day day-3" id="day-3">
+  <figure class="day-hero">
+    <img src="file:///Users/HOME/Downloads/images/day-3.jpg" alt="Fernando Romero&#39;s silver-scaled tower" loading="lazy" onerror="this.style.display=&#39;none&#39;" style="display: none;">
+    <span class="day-hero-marker">03</span>
+    <figcaption>Museo Soumaya · Plaza Carso, Polanco</figcaption>
+  </figure>
+
+  <div class="day-header reveal in">
+    <div class="day-title">
+      <div class="date-line">Sunday · May 10 · Plaza Carso &amp; Depart · Flight 4:40 PM</div>
+      <h2>Breakfast early, two museums, airport cushion.</h2>
+      <p class="blurb">Three-hour airport cushion means the hotel departs by 12:55 PM — no Sunday taco stop. Castacán moves to Friday night as the proper Yucatecan dinner it deserves to be. Sunday stays clean: one breakfast, two museums at Plaza Carso, airport.</p>
+    </div>
+  </div>
+
+  <div class="stops">
+    <div class="stop reveal in">
+      <div class="stop-time"><span class="t">8:00</span><span class="dur">60 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Molino <span class="i">El Pujol</span></div>
+          <div class="stop-num">01 / 04</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-taco">Breakfast</span>
+          <span class="tag">Heirloom corn</span>
+          <span class="tag tag-cost">~150–300 MXN pp</span>
+        </div>
+        <div class="stop-notes">Enrique Olvera's masa project. Order the quesadilla de epazote and the mole chilaquiles. The tortilla is the entire point — single-origin, nixtamalized in-house, ground the day you eat it.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJEf1kmb3_0YURQR2YXpr2jSE" target="_blank" rel="noopener">Map ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal">
+      <div class="stop-time"><span class="t">10:00</span><span class="dur">60 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Museo <span class="i">Jumex</span></div>
+          <div class="stop-num">02 / 04</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-museum">Contemporary</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Uber 15 min to Plaza Carso. Opens 10 AM sharp. David Chipperfield's sawtooth-roof building. Do it first while the Soumaya line builds next door.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJv0LcYRoC0oURwXXz3593qE8" target="_blank" rel="noopener">Map ↗</a><a href="https://www.fundacionjumex.org/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal">
+      <div class="stop-time"><span class="t">11:00</span><span class="dur">60 min</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name">Museo <span class="i">Soumaya</span></div>
+          <div class="stop-num">03 / 04</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag tag-museum">Museum</span>
+          <span class="tag tag-free">Free</span>
+        </div>
+        <div class="stop-notes">Walk next door from Jumex. Trimmed to 60 min to keep the 3-hour airport buffer. Start on the top floor with the Rodin sculptures and work down — Sala 6 European masters, Sala 4 Mexican art. Skip the lower floors' rotating temporary shows unless something catches. No water allowed inside.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJCT06bhoC0oURszwDTCLicpM" target="_blank" rel="noopener">Map ↗</a><a href="https://www.museosoumaya.org/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+
+    <div class="stop reveal">
+      <div class="stop-time"><span class="t">12:15</span><span class="dur">45 min to MEX</span></div>
+      <div class="stop-body">
+        <div class="stop-head">
+          <div class="stop-name"><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--amarillo);">Mondrian</a> → airport</div>
+          <div class="stop-num">04 / 04</div>
+        </div>
+        <div class="stop-tags">
+          <span class="tag">Departure</span>
+          <span class="tag tag-cost">~400 MXN Uber</span>
+        </div>
+        <div class="stop-notes">Uber from Plaza Carso back to the hotel (~15 min), grab bags (held by bellhop after late checkout), then straight to MEX Terminal 1. Target MEX arrival 1:40 PM — exactly 3 hours before UA 1025 at 4:40 PM.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ1Qr-1aH_0YURK9bEfxCa9Ng" target="_blank" rel="noopener">Map ↗</a><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </div>
+  </div>
+
+  <div class="days-hint">
+    <span class="nav-arrow">←</span> Swipe · Arrow keys · Tap a tab <span class="nav-arrow">→</span>
+  </div>
+</div>
+
+<!-- ==================== PASTOR FLIGHT ==================== -->
+<section class="pastor-box">
+  <div class="pastor-inner">
+    <div class="eyebrow">Weekend flight · a compressed study</div>
+    <h3>Two trompos, <span class="i">one baseline.</span></h3>
+    <p style="max-width: 42rem; color: var(--paper-deep); font-size: 1.05rem; line-height: 1.5;">Flight timing cut Selene from the plan, so the pastor study runs on Saturday alone. Pay attention to marinade, pineapple ratio, trompo sear, and cut thickness — Huequito and Parados are more different than they look at first pass.</p>
+
+    <div class="pastor-flight">
+      <div class="pastor-item">
+        <div class="num">00.</div>
+        <div class="where">Hola El Güero</div>
+        <div class="note">Fri 1:15 · Condesa · Not pastor — guisados. The palate baseline that makes the others readable.</div>
+      </div>
+      <div class="pastor-item">
+        <div class="num">01.</div>
+        <div class="where">El Huequito</div>
+        <div class="note">Sat 3:30 · Centro · Original trompo since 1959. Leaner cut, tighter marinade, more pastoral than aggressive.</div>
+      </div>
+      <div class="pastor-item">
+        <div class="num">02.</div>
+        <div class="where">Los Parados</div>
+        <div class="note">Sat 11:30 PM · Roma Sur · Aggressive char, pineapple-forward, late-night standing counter energy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRACTICAL ==================== -->
+<section class="practical">
+  <div class="practical-inner">
+    <h2>Practical notes.</h2>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <h4>Altitude</h4>
+        <p>7,350 ft. Hydrate hard the first day, ease off the mezcal on Friday night, don't be surprised if Bellas Artes stairs feel steeper than they are.</p>
+      </div>
+      <div class="practical-item">
+        <h4>Transport</h4>
+        <p>Uber and Didi. Cheap, safe, 15–25 min between any two neighborhoods on the plan. Centro is a straight shot up Av. Cuauhtémoc from Condesa.</p>
+      </div>
+      <div class="practical-item">
+        <h4>Cash</h4>
+        <p>Hidalguense, Los Cocuyos, Los Parados, and the street stands prefer cash. Keep 1,500 MXN in smaller bills for the weekend.</p>
+      </div>
+      <div class="practical-item">
+        <h4>Wine angle</h4>
+        <p>Rosetta runs a serious natural-leaning list with strong Mexican representation — Bichi (Valle de Guadalupe), Cuna de Tierra (Guanajuato), and Vinisterra are the names to ask after. Café Tacobar is the mezcal counterweight: ask Chris for a pour from the back shelf, not the menu.</p>
+      </div>
+      <div class="practical-item">
+        <h4>Rain contingency</h4>
+        <p>Small afternoon shower risk Saturday. Bellas Artes, Torre Latino, and Casa de los Azulejos sit within a three-block covered radius — the Centro stops bunch well if it breaks.</p>
+      </div>
+      <div class="practical-item">
+        <h4>Per-person budget</h4>
+        <p>Museums &amp; views ~820 MXN. Airport + in-city Ubers ~2,000 MXN. Food ranges from ~4,500 MXN (taco-heavy, modest drinks) to ~8,000 MXN (full wine service at Rosetta, extended mezcal at Café Tacobar). Weekend total: <strong>~7,500–11,000 MXN per person</strong>, roughly <strong>$375–550 USD</strong>. Swap wine for mezcal and you land at the lower end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="sig">Curious → <span class="accent">connoisseur.</span></div>
+  <div class="coords">
+    Filed May 2026<br>
+    Houston · CDMX · Houston<br>
+    19.40° N / 99.17° W<br>
+    Drink with Rapha
+  </div>
+</footer>
+
+<script>
+  // ============ DAY TABS NAVIGATION ============
+  const dayTabs = document.querySelectorAll('.tab-btn');
+  const daysRail = document.getElementById('days-rail');
+  const daysViewport = document.getElementById('days-viewport');
+  const daySections = document.querySelectorAll('.days-rail > .day');
+  let activeDay = 1;
+  const totalDays = daySections.length;
+
+  function setViewportHeight() {
+    const active = daySections[activeDay - 1];
+    if (active && daysViewport) {
+      daysViewport.style.height = active.offsetHeight + 'px';
+    }
+  }
+
+  function goToDay(n, skipHistory = false) {
+    if (n < 1 || n > totalDays) return;
+    activeDay = n;
+    if (daysRail) {
+      daysRail.style.transform = `translateX(-${(n - 1) * 33.3333}%)`;
+    }
+    dayTabs.forEach(btn => {
+      const match = parseInt(btn.dataset.day) === n;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+    setViewportHeight();
+    if (!skipHistory && history.replaceState) {
+      history.replaceState(null, '', `#day-${n}`);
+    }
+  }
+
+  dayTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToDay(parseInt(btn.dataset.day));
+    });
+  });
+
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    // Only fire if focus isn't on an input/textarea
+    const tag = document.activeElement && document.activeElement.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft')  goToDay(activeDay - 1);
+    if (e.key === 'ArrowRight') goToDay(activeDay + 1);
+  });
+
+  // Touch swipe — only on the days-viewport, not the whole page
+  if (daysViewport) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let swiping = false;
+
+    daysViewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      swiping = true;
+    }, { passive: true });
+
+    daysViewport.addEventListener('touchend', (e) => {
+      if (!swiping) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      // Only treat as a horizontal swipe if horizontal movement clearly dominates
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx < 0) goToDay(activeDay + 1);
+        else goToDay(activeDay - 1);
+      }
+      swiping = false;
+    }, { passive: true });
+  }
+
+  // Re-size viewport on window resize
+  window.addEventListener('resize', () => {
+    setViewportHeight();
+  });
+
+  // Init: check hash, set initial viewport height after fonts/images load
+  function initDays() {
+    const hash = window.location.hash.match(/#day-(\d)/);
+    if (hash) {
+      const n = parseInt(hash[1]);
+      if (n >= 1 && n <= totalDays) goToDay(n, true);
+      else setViewportHeight();
+    } else {
+      setViewportHeight();
+    }
+  }
+  initDays();
+  // Re-sync after images / fonts finish loading
+  window.addEventListener('load', setViewportHeight);
+  setTimeout(setViewportHeight, 300);
+  setTimeout(setViewportHeight, 1200);
+
+  // ============ SCROLL REVEAL ============
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach((r) => io.observe(r));
+
+  // ============ ITINERARY DATA ============
+  const stops = {
+    day1: [
+      { n: 1, name: 'Mondrian Condesa', time: 'Fri · 12:45 PM', lat: 19.4078276, lng: -99.1687242 },
+      { n: 2, name: 'Tacos Hola El Güero', time: 'Fri · 1:15 PM', lat: 19.4116663, lng: -99.1715018 },
+      { n: 3, name: 'Museo Nacional de Antropología', time: 'Fri · 2:15 PM', lat: 19.4260032, lng: -99.1862786 },
+      { n: 4, name: 'Parque México', time: 'Fri · 5:30 PM', lat: 19.4122631, lng: -99.1695776 },
+      { n: 5, name: 'Plaza Río de Janeiro', time: 'Fri · 6:30 PM', lat: 19.4210439, lng: -99.1609432 },
+      { n: 6, name: 'Café Tacobar', time: 'Fri · 8:00 PM', lat: 19.4225785, lng: -99.1637941 }
+    ],
+    day2: [
+      { n: 1, name: 'El Hidalguense', time: 'Sat · 8:30 AM', lat: 19.409856, lng: -99.165203 },
+      { n: 2, name: 'Palacio Nacional', time: 'Sat · 10:15 AM', lat: 19.4328868, lng: -99.1313531 },
+      { n: 3, name: 'Templo Mayor', time: 'Sat · 11:45 AM', lat: 19.4346038, lng: -99.131881 },
+      { n: 4, name: 'Los Cocuyos', time: 'Sat · 1:30 PM', lat: 19.4302794, lng: -99.1387977 },
+      { n: 5, name: 'Catedral Metropolitana', time: 'Sat · 2:30 PM', lat: 19.4343942, lng: -99.1330824 },
+      { n: 6, name: 'Casa de los Azulejos', time: 'Sat · 3:00 PM', lat: 19.4342214, lng: -99.1401815 },
+      { n: 7, name: 'Tacos El Huequito', time: 'Sat · 3:30 PM', lat: 19.4306195, lng: -99.1429767 },
+      { n: 8, name: 'Palacio de Bellas Artes', time: 'Sat · 4:15 PM', lat: 19.4352, lng: -99.1412 },
+      { n: 9, name: 'Torre Latinoamericana', time: 'Sat · 5:45 PM', lat: 19.4339414, lng: -99.1406381 },
+      { n: 10, name: 'Rosetta', time: 'Sat · 8:30 PM', lat: 19.4197758, lng: -99.1598009 },
+      { n: 11, name: 'Taquería Los Parados', time: 'Sat · 11:30 PM', lat: 19.4060716, lng: -99.161278 }
+    ],
+    day3: [
+      { n: 1, name: 'Molino El Pujol', time: 'Sun · 8:00 AM', lat: 19.4076748, lng: -99.1771131 },
+      { n: 2, name: 'Museo Jumex', time: 'Sun · 10:00 AM', lat: 19.4404054, lng: -99.2038782 },
+      { n: 3, name: 'Museo Soumaya', time: 'Sun · 11:00 AM', lat: 19.4406926, lng: -99.2047001 },
+      { n: 4, name: 'Castacán', time: 'Sun · 12:15 PM', lat: 19.4202571, lng: -99.1744862 },
+      { n: 5, name: 'Mondrian → MEX', time: 'Sun · 12:55 PM', lat: 19.4078276, lng: -99.1687242 }
+    ]
+  };
+
+  const dayColors = {
+    day1: '#D94D7B',
+    day2: '#1E3A8A',
+    day3: '#E8A52C'
+  };
+
+  // ============ MAP INIT ============
+  function initMap() {
+    if (typeof L === 'undefined') {
+      // Leaflet not loaded yet, try again
+      setTimeout(initMap, 100);
+      return;
+    }
+
+    const map = L.map('map', {
+      center: [19.425, -99.172],
+      zoom: 13,
+      zoomControl: true,
+      scrollWheelZoom: false,
+      attributionControl: true
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> · <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Label layer (over routes, under markers) for cleaner look
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19,
+      pane: 'shadowPane'
+    }).addTo(map);
+
+    let activeLayers = [];
+
+    function clearLayers() {
+      activeLayers.forEach(l => map.removeLayer(l));
+      activeLayers = [];
+    }
+
+    function drawDay(dayKey) {
+      const color = dayColors[dayKey];
+      const dayStops = stops[dayKey];
+
+      // Polyline connecting stops in order
+      const latlngs = dayStops.map(s => [s.lat, s.lng]);
+      const line = L.polyline(latlngs, {
+        color: color,
+        weight: 3,
+        opacity: 0.75,
+        dashArray: '5, 9',
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(map);
+      activeLayers.push(line);
+
+      // Numbered markers
+      dayStops.forEach(stop => {
+        const pinClass = dayKey + '-pin';
+        const icon = L.divIcon({
+          className: 'custom-marker',
+          html: `<div class="marker-pin ${pinClass}">${stop.n}</div>`,
+          iconSize: [34, 34],
+          iconAnchor: [17, 17],
+          popupAnchor: [0, -18]
+        });
+        const marker = L.marker([stop.lat, stop.lng], { icon, riseOnHover: true }).addTo(map);
+        marker.bindPopup(`
+          <span class="pop-name">${stop.name}</span>
+          <span class="pop-meta">${stop.time}</span>
+        `, { closeButton: true, offset: [0, -4] });
+        activeLayers.push(marker);
+      });
+    }
+
+    function render(dayKey) {
+      clearLayers();
+      if (dayKey === 'all') {
+        drawDay('day1');
+        drawDay('day2');
+        drawDay('day3');
+        // Fit to combined bounds
+        const all = [...stops.day1, ...stops.day2, ...stops.day3];
+        map.fitBounds(L.latLngBounds(all.map(s => [s.lat, s.lng])), { padding: [40, 40] });
+      } else {
+        drawDay(dayKey);
+        map.fitBounds(L.latLngBounds(stops[dayKey].map(s => [s.lat, s.lng])), { padding: [60, 60] });
+      }
+    }
+
+    // Initial render
+    render('all');
+
+    // Toggle buttons
+    document.querySelectorAll('.day-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render(btn.dataset.day);
+      });
+    });
+  }
+
+  // Wait for DOM and Leaflet to load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+</script>
+
+
+
+</body></html>

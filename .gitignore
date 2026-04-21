@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+._*
+
+# Editor swap/temp
+*.swp
+*.swo
+*~
+
+# Leftover from browser "Save Page As" — not used by the live site
+CDMX · May 8–10, 2026 · Raphael_files/
