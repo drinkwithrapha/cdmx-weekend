@@ -353,6 +353,92 @@
     color: rgba(242, 235, 220, 0.9);
   }
 
+  /* ---------- SWEET TANGENTS ---------- */
+  .tangents {
+    background: var(--paper-deep);
+    padding: 4rem 6vw;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .tangents-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .tangents h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+
+  .tangents-lead {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 18rem;
+    line-height: 1.4;
+  }
+
+  .tangents-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 2.5rem;
+  }
+
+  .tang-item {
+    border-top: 1px solid var(--hairline);
+    padding-top: 1rem;
+  }
+
+  .tang-item .tang-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 50;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+
+  .tang-item .tang-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tang-item .tang-name a:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+
+  .tang-item .tang-where {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+  }
+
+  .tang-item .tang-note {
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
   /* ---------- DAY SECTIONS ---------- */
   .day {
     padding: 0;
@@ -1449,6 +1535,8 @@
     .weather-ribbon { gap: 1rem; flex-direction: column; align-items: flex-start; }
 
     .reservations-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .tangents-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .tangents-grid { grid-template-columns: 1fr; }
     .day { padding: 4rem 0 2rem; }
     .day-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; }
     .day-marker { font-size: 6rem; }
@@ -1613,6 +1701,38 @@
         <div class="name"><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Torre Latinoamericana</a></div>
         <div class="when">Sat 5:45 pm · miradortorrelatino.com</div>
         <div class="note">Skip-the-line tickets online save ~30 min of queueing for the 44th-floor observation deck. ~220 MXN.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SWEET TANGENTS ==================== -->
+<section class="tangents">
+  <div class="tangents-inner">
+    <div>
+      <h2>Sweet<br><em style="font-style: italic;">tangents.</em></h2>
+      <p class="tangents-lead">Slot in if the mood strikes — all near the existing walking arcs.</p>
+    </div>
+    <div class="tangents-grid">
+      <div class="tang-item">
+        <div class="tang-name"><a href="https://elenareygadas.com/" target="_blank" rel="noopener">Panadería Rosetta</a></div>
+        <div class="tang-where">Colima 179 · Roma Norte</div>
+        <div class="tang-note">Elena Reygadas's bakery, a few doors from the restaurant. The guava roll is the signature; rosemary bollo, pan de elote, and classic concha round it out.</div>
+      </div>
+      <div class="tang-item">
+        <div class="tang-name"><a href="https://maque.website/" target="_blank" rel="noopener">Maque</a></div>
+        <div class="tang-where">Plaza Popocatépetl 35 · Condesa</div>
+        <div class="tang-note">Family panadería since 1987, on Plaza Popocatépetl. Conchas, chilaquiles, café de olla. A short walk from the Mondrian for a proper morning.</div>
+      </div>
+      <div class="tang-item">
+        <div class="tang-name"><a href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Ideal+16+de+Septiembre+18+Centro+M%C3%A9xico" target="_blank" rel="noopener">Pastelería Ideal</a></div>
+        <div class="tang-where">16 de Septiembre 18 · Centro</div>
+        <div class="tang-note">Open since 1927. Two floors of glazed pan dulce, polvorones, and overbuilt wedding cakes upstairs. Fits mid-Saturday between Zócalo and Alameda.</div>
+      </div>
+      <div class="tang-item">
+        <div class="tang-name"><a href="https://www.instagram.com/joegelatooficial/" target="_blank" rel="noopener">Joe Gelato</a></div>
+        <div class="tang-where">Versalles 78 · Juárez</div>
+        <div class="tang-note">Experimental artisanal gelato — mamey, mezcal salted caramel, olive oil, queso fresco con fresa. A Versalles detour on the way between Roma and Centro.</div>
       </div>
     </div>
   </div>
