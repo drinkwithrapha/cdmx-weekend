@@ -1149,7 +1149,7 @@
     min-height: 480px;
     width: 100%;
     background: var(--paper-deep);
-    filter: saturate(0.85);
+    filter: saturate(1);
   }
 
   /* Custom marker styling */
@@ -1598,11 +1598,6 @@
         <div class="name"><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Torre Latinoamericana</a></div>
         <div class="when">Sat 5:45 pm · miradortorrelatino.com</div>
         <div class="note">Skip-the-line tickets online save ~30 min of queueing for the 44th-floor observation deck. ~220 MXN.</div>
-      </div>
-      <div class="res-item">
-        <div class="name">Museo Nacional de Antropología</div>
-        <div class="when">Fri 2:15 pm · at-door tickets</div>
-        <div class="note">No online ticketing. Walk up to the main entrance on Reforma. ~210 MXN for foreigners, card accepted.</div>
       </div>
     </div>
   </div>
@@ -2298,7 +2293,7 @@
       attributionControl: true
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> · <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 19
