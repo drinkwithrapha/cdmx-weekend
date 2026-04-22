@@ -292,6 +292,163 @@
     color: var(--paper-deep);
   }
 
+  /* ---------- FX / CURRENCY ---------- */
+  .fx {
+    background: var(--paper);
+    padding: 3.5rem 6vw;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .fx-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .fx-head .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oxblood);
+    margin-bottom: 0.5rem;
+  }
+
+  .fx-head h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .fx-head h2 em {
+    color: var(--cobalt);
+    font-style: italic;
+  }
+
+  .fx-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .fx-rate {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-right: 1px solid var(--hairline);
+    padding-right: 2rem;
+  }
+
+  .fx-rate-label {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--oxblood);
+    margin-bottom: 0.3rem;
+  }
+
+  .fx-rate-value {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: 'opsz' 144, 'SOFT' 60;
+    font-size: 1.4rem;
+    color: var(--ink);
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .fx-rate-value strong {
+    font-weight: 500;
+    color: var(--cobalt);
+  }
+
+  .fx-rate-meta {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  .fx-calc {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .fx-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .fx-field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+  }
+
+  .fx-field input {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'SOFT' 40;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--ink);
+    background: var(--paper-deep);
+    color: var(--ink);
+    width: 100%;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+  }
+
+  .fx-field input:focus {
+    outline: none;
+    border-color: var(--cobalt);
+    box-shadow: 3px 3px 0 var(--cobalt);
+  }
+
+  .fx-field input::-webkit-outer-spin-button,
+  .fx-field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .fx-arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    padding-bottom: 0.5rem;
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    .fx-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .fx-body { grid-template-columns: 1fr; gap: 1.5rem; }
+    .fx-rate { border-right: none; border-bottom: 1px solid var(--hairline); padding-right: 0; padding-bottom: 1rem; }
+    .fx-calc { grid-template-columns: 1fr; }
+    .fx-arrow { display: none; }
+  }
+
   /* ---------- RESERVATION CALLOUT ---------- */
   .reservations {
     background: var(--rosa);
@@ -896,6 +1053,36 @@
     letter-spacing: 0.12em;
     display: block;
     margin-bottom: 0.5rem;
+  }
+  .transit-notes strong.sub {
+    display: inline;
+    color: var(--ink);
+    font-size: 0.68rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+  .transit-notes .pending {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    opacity: 0.75;
+    font-size: 0.9rem;
+  }
+  .transit-notes a {
+    color: inherit;
+    border-bottom: 1px solid var(--hairline);
+    text-decoration: none;
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .transit-notes a:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+  .transit-notes + .transit-notes {
+    border-top: 1px solid var(--hairline);
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 768px) {
@@ -1675,6 +1862,13 @@
       <strong>Airport logistics</strong>
       United operates from MEX Terminal 1. Arriving 3 hours before the 4:40 PM Sunday return means hitting MEX by 1:40 PM — which means leaving the Mondrian by 12:55 PM at the latest. Immigration on arrival Friday runs ~45 min for main-cabin passengers without Global Entry. The Mondrian holds bags if the room isn't ready at 12:45 PM check-in (rooms guaranteed at 3 PM, but early check-in is part of your negotiated perks).
     </div>
+
+    <div class="transit-notes">
+      <strong>United Clubs</strong>
+      <strong class="sub">IAH · Houston</strong> Terminal C (near gate C1) and Terminal E (between gates E11–E12) are the full-service clubs. Terminal E sits closest to international departures. Terminal B's main club is closed for renovation through 2026; a grab-and-go <em>United Club Fly</em> is open on the south side of B for snacks and coffee. <a href="https://www.united.com/en/us/fly/travel/airport/lounges.html?airport=IAH" target="_blank" rel="noopener">United Clubs · IAH ↗</a><br>
+      <strong class="sub">MEX · Mexico City</strong> Terminal 1, Concourse H, mezzanine level near gate 19. Enter through security checkpoint G. Open daily 7:00 AM–5:30 PM — covers the 4:40 PM Sunday departure with room to spare. <a href="https://www.united.com/en/us/fly/travel/airport/lounges.html?airport=MEX" target="_blank" rel="noopener">United Club · MEX ↗</a><br>
+      <em class="pending">Walking distance + time to gate: to be filled in once gate assignments are published (usually ~24 h before departure).</em>
+    </div>
   </div>
 </section>
 
@@ -1684,7 +1878,34 @@
   <div class="stat"><span class="n">2</span><span class="l">Pastor trompos compared</span></div>
   <div class="stat"><span class="n">10</span><span class="l">Museums &amp; landmarks</span></div>
   <div class="stat"><span class="n">3</span><span class="l">Neighborhoods, no more</span></div>
-  <div class="stat"><span class="n">2</span><span class="l">Tasting-level dinners</span></div>
+</section>
+
+<!-- ==================== FX / CURRENCY ==================== -->
+<section class="fx">
+  <div class="fx-inner">
+    <div class="fx-head">
+      <div class="eyebrow">Currency</div>
+      <h2>Peso → <em>dollar</em>.</h2>
+    </div>
+    <div class="fx-body">
+      <div class="fx-rate">
+        <span class="fx-rate-label">Live rate</span>
+        <span class="fx-rate-value" id="fx-rate-value">1 USD ≈ <strong>—</strong> MXN</span>
+        <span class="fx-rate-meta" id="fx-rate-meta">loading…</span>
+      </div>
+      <div class="fx-calc">
+        <div class="fx-field">
+          <label for="fx-usd">USD</label>
+          <input type="number" id="fx-usd" inputmode="decimal" placeholder="0" min="0" step="0.01" aria-label="Amount in US dollars">
+        </div>
+        <span class="fx-arrow" aria-hidden="true">⇌</span>
+        <div class="fx-field">
+          <label for="fx-mxn">MXN</label>
+          <input type="number" id="fx-mxn" inputmode="decimal" placeholder="0" min="0" step="0.01" aria-label="Amount in Mexican pesos">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ==================== RESERVATIONS ==================== -->
@@ -1700,7 +1921,7 @@
       <div class="res-item">
         <div class="name"><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Torre Latinoamericana</a></div>
         <div class="when">Sat 5:45 pm · miradortorrelatino.com</div>
-        <div class="note">Skip-the-line tickets online save ~30 min of queueing for the 44th-floor observation deck. ~220 MXN.</div>
+        <div class="note">Skip-the-line tickets online save ~30 min of queueing for the 44th-floor observation deck. ~220 MXN / ~$11 USD.</div>
       </div>
     </div>
   </div>
@@ -1814,7 +2035,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag">Bag drop</span>
-          <span class="tag tag-cost">~400 MXN Uber from MEX</span>
+          <span class="tag tag-cost">~400 MXN / ~$20 USD Uber from MEX</span>
         </div>
         <div class="stop-notes">Your booking includes $100 property credit, early check-in, late check-out, and a room upgrade subject to availability — mention the perks at check-in. If the room isn't ready, bell desk holds bags. Splash water, change shirts, grab a cortado at the lobby café.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ1Qr-1aH_0YURK9bEfxCa9Ng" target="_blank" rel="noopener">Map ↗</a><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -1830,7 +2051,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-taco">Tacos</span>
-          <span class="tag tag-cost">~150–250 MXN</span>
+          <span class="tag tag-cost">~150–250 MXN / ~$8–13 USD</span>
         </div>
         <div class="stop-notes">Guisados counter on Amsterdam, two blocks from the hotel. Order chicharrón en salsa verde, tinga de pollo, and whichever estofado looks best. Standing on the sidewalk is the experience. This is your guisados baseline for the pastor study later.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJZeIEDEH_0YURpQ_UHx0ZTTo" target="_blank" rel="noopener">Map ↗</a></div>
@@ -1846,7 +2067,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-museum">World-class</span>
-          <span class="tag tag-cost">~210 MXN + 85 audio</span>
+          <span class="tag tag-cost">~210 MXN + 85 audio / ~$15 USD</span>
         </div>
         <div class="stop-notes">Uber from Condesa, ~15 min. Pedro Ramírez Vázquez's 1964 masterpiece. The Piedra del Sol, the Olmec colossal heads, the reconstructed tomb of Pakal from Palenque, Teotihuacan reproductions. Two floors — ground floor by region is the greatest-hits path: Teotihuacan → Mexica → Oaxaca → Maya. Audio guide worth renting; most labels are Spanish-only. Closes 5 PM sharp, last entry 4:30.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJScjIILQB0oURJMVub-MaI4Q" target="_blank" rel="noopener">Map ↗</a><a href="https://www.mna.inah.gob.mx/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -1895,7 +2116,7 @@
         <div class="stop-tags">
           <span class="tag tag-dining">Dinner &amp; drinks</span>
           <span class="tag tag-taco">Tacos</span>
-          <span class="tag tag-cost">~600–900 MXN pp</span>
+          <span class="tag tag-cost">~600–900 MXN pp / ~$30–45 USD</span>
         </div>
         <div class="stop-notes">Dinner + mezcal in one session. Chris the owner runs a serious mezcal program and the tacos off the griddle hold up as a real meal — barbacoa and al pastor, plus the chicken Josh Weissman put on the map. Ask about chilcuague root. Closed Sunday and Monday, so Friday is the call.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJDeWr2JT_0YURtBo7LSUf7iE" target="_blank" rel="noopener">Map ↗</a><a href="https://cafetacobar.com.mx/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -1916,7 +2137,7 @@
     <div class="day-title">
       <div class="date-line">Saturday · May 9 · Centro Histórico</div>
       <h2>Barbacoa breakfast, three pastor stations, Rivera's History of Mexico.</h2>
-      <p class="blurb">One neighborhood, all day, logical walking loop from Zócalo to Alameda. Don't over-order at lunch; there's another taco at 3:30 and a Rosetta tasting coming.</p>
+      <p class="blurb">One neighborhood, all day, logical walking loop from Zócalo to Alameda. Don't over-order at lunch; there's another taco at 3:30 and Rosetta at 9:30.</p>
     </div>
   </div>
 
@@ -1931,7 +2152,7 @@
         <div class="stop-tags">
           <span class="tag tag-taco">Barbacoa</span>
           <span class="tag">Weekends only</span>
-          <span class="tag tag-cost">~400–600 MXN pp</span>
+          <span class="tag tag-cost">~400–600 MXN pp / ~$20–30 USD</span>
         </div>
         <div class="stop-notes">Lamb steamed in maguey leaves with consomé, fresh tortillas, three salsas. Arrive by 9 to beat the line. Order the mixiote de borrego; the ant-butter guacamole is a full-course commitment, not a side.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJhZ_ytT__0YURRb-fzYtU7AQ" target="_blank" rel="noopener">Map ↗</a><a href="https://www.facebook.com/el.hidalguense.5" target="_blank" rel="noopener">Website ↗</a></div>
@@ -1964,7 +2185,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-museum">Ruins &amp; museum</span>
-          <span class="tag tag-cost">~210 MXN foreign</span>
+          <span class="tag tag-cost">~210 MXN / ~$11 USD foreign</span>
         </div>
         <div class="stop-notes">The Coyolxauhqui stone alone earns the ticket. Bilingual signage; give the museum 45 minutes after the outdoor walk.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ3dGBci350YURsDYUZcq-kIw" target="_blank" rel="noopener">Map ↗</a><a href="https://www.inah.gob.mx/zonas/zona-arqueologica-templo-mayor" target="_blank" rel="noopener">Website ↗</a></div>
@@ -1981,7 +2202,7 @@
         <div class="stop-tags">
           <span class="tag tag-taco">Tacos</span>
           <span class="tag">Counter</span>
-          <span class="tag tag-cost">~100–200 MXN pp</span>
+          <span class="tag tag-cost">~100–200 MXN pp / ~$5–10 USD</span>
         </div>
         <div class="stop-notes">Bourdain's CDMX taco stop. Campechano (suadero + chorizo), cabeza, and tripa if you're game. Stand at the counter, order two, keep moving.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJs1uZdNP-0YUR7xEuCTGxAMM" target="_blank" rel="noopener">Map ↗</a></div>
@@ -2030,7 +2251,7 @@
         <div class="stop-tags">
           <span class="tag tag-taco">Al pastor</span>
           <span class="tag">Since 1959</span>
-          <span class="tag tag-cost">~80–150 MXN pp</span>
+          <span class="tag tag-cost">~80–150 MXN pp / ~$4–8 USD</span>
         </div>
         <div class="stop-notes">Two blocks off Madero. Two tacos at the window counter. Lean, marinated pork off the original trompo — a very different animal from Los Cocuyos' griddle meats.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJczgiA9X-0YURqRON9mN1nMA" target="_blank" rel="noopener">Map ↗</a><a href="https://www.elhuequito.mx/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -2046,9 +2267,9 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-museum">Museum</span>
-          <span class="tag tag-cost">~95 MXN</span>
+          <span class="tag tag-cost">~95 MXN / ~$5 USD</span>
         </div>
-        <div class="stop-notes">Pay the ~95 MXN museum ticket for the upper floors. Rivera's recreation of Man at the Crossroads plus Orozco and Siqueiros. Art Nouveau outside, Art Deco inside.</div>
+        <div class="stop-notes">Pay the ~95 MXN / ~$5 USD museum ticket for the upper floors. Rivera's recreation of Man at the Crossroads plus Orozco and Siqueiros. Art Nouveau outside, Art Deco inside.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJTQGqdSv50YURz-imDdIQ2Bc" target="_blank" rel="noopener">Map ↗</a><a href="https://palacio.inba.gob.mx/" target="_blank" rel="noopener">Website ↗</a></div>
       </div>
     </div>
@@ -2062,7 +2283,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-landmark">Viewpoint</span>
-          <span class="tag tag-cost">~220 MXN</span>
+          <span class="tag tag-cost">~220 MXN / ~$11 USD</span>
         </div>
         <div class="stop-notes">Timed for golden hour over Bellas Artes. The building survived the 1957 and 1985 earthquakes — it's a landmark of Mexican mid-century engineering as much as a view.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJMc6vWiv50YURY1rtNDuRw2E" target="_blank" rel="noopener">Map ↗</a><a href="https://www.miradortorrelatino.com/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -2078,11 +2299,11 @@
         </div>
         <div class="stop-tags">
           <span class="tag tag-dining">Dinner</span>
-          <span class="tag">Reservation</span>
-          <span class="tag tag-cost">~1,800–3,000 MXN pp</span>
+          <span class="tag">Reservation · 9:30 PM</span>
+          <span class="tag tag-cost">~900–1,400 MXN pp / ~$45–70 USD</span>
         </div>
-        <div class="stop-notes">Elena Reygadas's flagship in a restored Porfirian mansion on Colima. Pasta-forward Italian-Mexican, serious natural wine list. Closed Sunday — lock Saturday night.</div>
-        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJdSGAWgP_0YURwNtY7rftf2E" target="_blank" rel="noopener">Map ↗</a><a href="https://rosetta.com.mx/" target="_blank" rel="noopener">Website ↗</a></div>
+        <div class="stop-notes">Elena Reygadas's flagship in a restored Porfirian mansion on Colima. Pasta-forward Italian-Mexican, serious natural wine list. Reservation locked for 9:30 PM via Tock — confirmation in Raphael's email. Keep it tight: a shared app or two, one pasta each, a couple of glasses of wine. Not a full tasting night.</div>
+        <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJdSGAWgP_0YURwNtY7rftf2E" target="_blank" rel="noopener">Map ↗</a><a href="https://rosetta.com.mx/" target="_blank" rel="noopener">Website ↗</a><a href="https://www.exploretock.com/rosetta" target="_blank" rel="noopener">Tock ↗</a></div>
       </div>
     </div>
 
@@ -2096,7 +2317,7 @@
         <div class="stop-tags">
           <span class="tag tag-taco">Pastor</span>
           <span class="tag">Until 4 AM</span>
-          <span class="tag tag-cost">~100–250 MXN pp</span>
+          <span class="tag tag-cost">~100–250 MXN pp / ~$5–13 USD</span>
         </div>
         <div class="stop-notes">Standing counter on Monterrey. Al pastor and bistec. Third pastor comparison of the day — each one's different. Aggressive char here, more so than El Huequito.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJsyICZBb_0YURFFEjAh6qYBo" target="_blank" rel="noopener">Map ↗</a><a href="https://www.los-parados.com/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -2132,7 +2353,7 @@
         <div class="stop-tags">
           <span class="tag tag-taco">Breakfast</span>
           <span class="tag">Heirloom corn</span>
-          <span class="tag tag-cost">~150–300 MXN pp</span>
+          <span class="tag tag-cost">~150–300 MXN pp / ~$8–15 USD</span>
         </div>
         <div class="stop-notes">Enrique Olvera's masa project. Order the quesadilla de epazote and the mole chilaquiles. The tortilla is the entire point — single-origin, nixtamalized in-house, ground the day you eat it.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJEf1kmb3_0YURQR2YXpr2jSE" target="_blank" rel="noopener">Map ↗</a></div>
@@ -2180,7 +2401,7 @@
         </div>
         <div class="stop-tags">
           <span class="tag">Departure</span>
-          <span class="tag tag-cost">~400 MXN Uber</span>
+          <span class="tag tag-cost">~400 MXN / ~$20 USD Uber</span>
         </div>
         <div class="stop-notes">Uber from Plaza Carso back to the hotel (~15 min), grab bags (held by bellhop after late checkout), then straight to MEX Terminal 1. Target MEX arrival 1:40 PM — exactly 3 hours before UA 1025 at 4:40 PM.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ1Qr-1aH_0YURK9bEfxCa9Ng" target="_blank" rel="noopener">Map ↗</a><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener">Website ↗</a></div>
@@ -2239,7 +2460,7 @@
       </div>
       <div class="practical-item">
         <h4>Cash</h4>
-        <p>Hidalguense, Los Cocuyos, Los Parados, and the street stands prefer cash. Keep 1,500 MXN in smaller bills for the weekend.</p>
+        <p>Hidalguense, Los Cocuyos, Los Parados, and the street stands prefer cash. Keep 1,500 MXN / ~$75 USD in smaller bills for the weekend.</p>
       </div>
       <div class="practical-item">
         <h4>Wine angle</h4>
@@ -2251,7 +2472,7 @@
       </div>
       <div class="practical-item">
         <h4>Per-person budget</h4>
-        <p>Museums &amp; views ~820 MXN. Airport + in-city Ubers ~2,000 MXN. Food ranges from ~4,500 MXN (taco-heavy, modest drinks) to ~8,000 MXN (full wine service at Rosetta, extended mezcal at Café Tacobar). Weekend total: <strong>~7,500–11,000 MXN per person</strong>, roughly <strong>$375–550 USD</strong>. Swap wine for mezcal and you land at the lower end.</p>
+        <p>Museums &amp; views ~820 MXN / ~$41 USD. Airport + in-city Ubers ~2,000 MXN / ~$100 USD. Food ranges from ~4,500 MXN / ~$225 USD (taco-heavy, modest drinks) to ~6,500 MXN / ~$325 USD (apps + pasta + wine at Rosetta, extended mezcal at Café Tacobar). Weekend total: <strong>~7,500–9,500 MXN per person</strong>, roughly <strong>$375–475 USD</strong>. Swap wine for mezcal and you land at the lower end.</p>
       </div>
     </div>
   </div>
@@ -2518,6 +2739,56 @@
   } else {
     initMap();
   }
+
+  // ============ CURRENCY (FX) ============
+  (function initFx() {
+    const rateValueEl = document.getElementById('fx-rate-value');
+    const rateMetaEl  = document.getElementById('fx-rate-meta');
+    const usdInput    = document.getElementById('fx-usd');
+    const mxnInput    = document.getElementById('fx-mxn');
+    if (!rateValueEl || !usdInput || !mxnInput) return;
+
+    let rate = 20; // sensible fallback used until/if live fetch succeeds
+    let ready = false;
+
+    function render(amount, source) {
+      if (!ready) return;
+      if (source === 'usd') {
+        if (usdInput.value === '') { mxnInput.value = ''; return; }
+        const v = parseFloat(usdInput.value);
+        mxnInput.value = isFinite(v) ? (v * rate).toFixed(2) : '';
+      } else {
+        if (mxnInput.value === '') { usdInput.value = ''; return; }
+        const v = parseFloat(mxnInput.value);
+        usdInput.value = isFinite(v) ? (v / rate).toFixed(2) : '';
+      }
+    }
+
+    usdInput.addEventListener('input', () => render(null, 'usd'));
+    mxnInput.addEventListener('input', () => render(null, 'mxn'));
+
+    fetch('https://api.frankfurter.app/latest?from=USD&to=MXN')
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        if (data && data.rates && typeof data.rates.MXN === 'number') {
+          rate = data.rates.MXN;
+          rateValueEl.innerHTML = `1 USD ≈ <strong>${rate.toFixed(2)}</strong> MXN`;
+          rateMetaEl.textContent = `Updated ${data.date}`;
+        } else {
+          throw new Error('bad payload');
+        }
+      })
+      .catch(() => {
+        rateValueEl.innerHTML = `1 USD ≈ <strong>~${rate}</strong> MXN`;
+        rateMetaEl.textContent = 'Live rate unavailable · using estimate';
+      })
+      .finally(() => {
+        ready = true;
+        // if user typed before the fetch finished, compute now
+        if (usdInput.value !== '') render(null, 'usd');
+        else if (mxnInput.value !== '') render(null, 'mxn');
+      });
+  })();
 </script>
 
 
