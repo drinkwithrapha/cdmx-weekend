@@ -2300,9 +2300,9 @@
         <div class="stop-tags">
           <span class="tag">Pause</span>
           <span class="tag tag-drinks">Pre-dinner wine</span>
-          <span class="tag tag-cost">~300–500 MXN pp / ~$15–25 USD</span>
+          <span class="tag tag-free">On the $100 hotel credit</span>
         </div>
-        <div class="stop-notes">Uber back from Torre (~25 min across Insurgentes), change, shower if it helps. Glass of wine in the lobby bar or up on the roof. Keeps Rosetta feeling light on arrival and gives the day's feet a break. Short walk or quick Uber over to Colima 179 for the 9:30 reservation.</div>
+        <div class="stop-notes">Uber back from Torre (~25 min across Insurgentes), change, shower if it helps. Glass of wine in the lobby bar or up on the roof — this is the moment to burn the Mondrian's $100 property credit (covers two glasses with room to spare). Keeps Rosetta feeling light on arrival and gives the day's feet a break. Short walk or quick Uber over to Colima 179 for the 9:30 reservation.</div>
         <div class="stop-links"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ1Qr-1aH_0YURK9bEfxCa9Ng" target="_blank" rel="noopener">Map ↗</a><a href="https://mondrianhotels.com/mexico-city-condesa/" target="_blank" rel="noopener">Website ↗</a></div>
       </div>
     </div>
@@ -2489,7 +2489,7 @@
       </div>
       <div class="practical-item">
         <h4>Per-person budget</h4>
-        <p>Museums &amp; views ~820 MXN / ~$41 USD. Airport + in-city Ubers ~2,000 MXN / ~$100 USD. Food ranges from ~4,400 MXN / ~$220 USD (taco-heavy, modest drinks, skip mezcal) to ~6,600 MXN / ~$330 USD (apps + pasta + wine at Rosetta, pre-dinner wine at the Mondrian, one mezcal sample at Tacobar). Weekend total: <strong>~7,200–9,400 MXN per person</strong>, roughly <strong>$360–470 USD</strong>. Keep Friday dry and you land at the lower end.</p>
+        <p>Museums &amp; views ~820 MXN / ~$41 USD. Airport + in-city Ubers ~2,000 MXN / ~$100 USD. Food ranges from ~4,400 MXN / ~$220 USD (taco-heavy, modest drinks, skip mezcal) to ~6,600 MXN / ~$330 USD (apps + pasta + wine at Rosetta, pre-dinner wine at the Mondrian, one mezcal sample at Tacobar). Weekend total: <strong>~7,200–9,400 MXN per person</strong>, roughly <strong>$360–470 USD</strong>. Keep Friday dry and you land at the lower end. <em>Minus the Mondrian's $100 property credit — earmarked for Saturday's pre-dinner wine, with change to spare for on-property coffee or a lobby bar round.</em></p>
       </div>
     </div>
   </div>
@@ -2785,7 +2785,7 @@
     usdInput.addEventListener('input', () => render(null, 'usd'));
     mxnInput.addEventListener('input', () => render(null, 'mxn'));
 
-    fetch('https://api.frankfurter.app/latest?from=USD&to=MXN')
+    fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=MXN')
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(data => {
         if (data && data.rates && typeof data.rates.MXN === 'number') {
