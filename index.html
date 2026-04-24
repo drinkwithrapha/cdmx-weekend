@@ -449,6 +449,141 @@
     .fx-arrow { display: none; }
   }
 
+  /* ---------- ALTITUDE & HEALTH ---------- */
+  .altitude {
+    background: var(--paper-deep);
+    padding: 4rem 6vw;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .altitude-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .altitude-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .altitude-head .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oxblood);
+    margin-bottom: 0.5rem;
+  }
+
+  .altitude-head h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 100;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2.8rem;
+    line-height: 0.95;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .altitude-head h2 em {
+    color: var(--cobalt);
+    font-style: italic;
+  }
+
+  .altitude-elev {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .altitude-elev strong {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: 'SOFT' 60;
+    font-size: 1.8rem;
+    color: var(--cobalt);
+    display: block;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0.1rem 0;
+  }
+
+  .altitude-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2rem 3rem;
+  }
+
+  .altitude-item h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oxblood);
+    margin: 0 0 0.7rem;
+    font-weight: 500;
+  }
+
+  .altitude-item p,
+  .altitude-item ul {
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  .altitude-item ul {
+    padding-left: 1.1rem;
+  }
+
+  .altitude-item li {
+    margin-bottom: 0.35rem;
+  }
+
+  .altitude-item a {
+    color: inherit;
+    border-bottom: 1px solid var(--hairline);
+    text-decoration: none;
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .altitude-item a:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+  }
+
+  .altitude-item.watch {
+    border-left: 3px solid var(--oxblood);
+    padding-left: 1.2rem;
+  }
+
+  .altitude-item.watch h4 {
+    color: var(--oxblood);
+  }
+
+  .altitude-item.contacts {
+    grid-column: span 2;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 1.5rem 1.8rem;
+    margin-top: 0.5rem;
+  }
+
   /* ---------- RESERVATION CALLOUT ---------- */
   .reservations {
     background: var(--rosa);
@@ -1724,6 +1859,10 @@
     .reservations-inner { grid-template-columns: 1fr; gap: 2rem; }
     .tangents-inner { grid-template-columns: 1fr; gap: 2rem; }
     .tangents-grid { grid-template-columns: 1fr; }
+    .altitude-head { grid-template-columns: 1fr; gap: 1rem; }
+    .altitude-elev { text-align: left; }
+    .altitude-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .altitude-item.contacts { grid-column: span 1; }
     .day { padding: 4rem 0 2rem; }
     .day-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; }
     .day-marker { font-size: 6rem; }
@@ -1903,6 +2042,91 @@
           <label for="fx-mxn">MXN</label>
           <input type="number" id="fx-mxn" inputmode="decimal" placeholder="0" min="0" step="0.01" aria-label="Amount in Mexican pesos">
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ALTITUDE & HEALTH ==================== -->
+<section class="altitude">
+  <div class="altitude-inner">
+    <div class="altitude-head">
+      <div>
+        <div class="eyebrow">Altitude &amp; health</div>
+        <h2>Land <em>acclimated</em>.</h2>
+      </div>
+      <div class="altitude-elev">
+        Mexico City sits at
+        <strong>7,350 ft</strong>
+        ~2,240 m
+      </div>
+    </div>
+
+    <div class="altitude-grid">
+      <div class="altitude-item">
+        <h4>2–3 days before departure</h4>
+        <ul>
+          <li>Hydrate heavily; ease up on alcohol.</li>
+          <li>Prioritize sleep; land rested, not off a red-eye.</li>
+          <li>Keep up normal cardio — don't start anything new.</li>
+          <li>If prone to low iron, worth knowing your levels before the trip.</li>
+        </ul>
+      </div>
+
+      <div class="altitude-item">
+        <h4>Pack</h4>
+        <ul>
+          <li>Lip balm, moisturizer, saline nasal spray.</li>
+          <li>High-SPF sunscreen — UV hits harder at elevation.</li>
+          <li>Ibuprofen for preventive dosing (600 mg ~6 h before arrival, then every 6 h on day one) if tolerated.</li>
+          <li>Skip sleeping pills and heavy sedatives the first night — they suppress breathing.</li>
+        </ul>
+      </div>
+
+      <div class="altitude-item">
+        <h4>For Raphael (mild asthma)</h4>
+        <ul>
+          <li>Confirm the rescue inhaler is current; bring a backup.</li>
+          <li>Quick pre-trip check-in with his doctor.</li>
+          <li>Keep the inhaler in the day bag, not only in the luggage.</li>
+          <li>Daily air-quality check via the IQAir app — ozone and particulates can trigger symptoms even with mild asthma.</li>
+          <li>Pre-medicate before long walking days if he's feeling it.</li>
+        </ul>
+      </div>
+
+      <div class="altitude-item">
+        <h4>Arrival day (Friday)</h4>
+        <ul>
+          <li>Keep it light: no Ajusco, no strenuous hikes, no heavy drinking.</li>
+          <li>Lighter meals sit better while adjusting.</li>
+          <li>Mild breathlessness on stairs and a dull headache are normal — most people adjust within 24–48 hours.</li>
+        </ul>
+      </div>
+
+      <div class="altitude-item watch">
+        <h4>When to seek care</h4>
+        <p>Rescue inhaler not giving the usual relief. Inability to speak full sentences. Bluish lips. Severe headache with nausea or confusion. Any of these → hospital, not the hotel doctor.</p>
+      </div>
+
+      <div class="altitude-item">
+        <h4>Travel insurance — confirm before boarding</h4>
+        <p>Pull up the active travel policy (check Raphael's primary credit card first — Amex Platinum and Chase Sapphire Reserve both bundle emergency medical evacuation). Call the provider and confirm four things:</p>
+        <ul>
+          <li>Emergency medical evacuation coverage — and the dollar limit. Medevac from CDMX can run $25k–$100k+.</li>
+          <li>Pre-existing condition waiver covers Raphael's asthma.</li>
+          <li>Direct-pay vs. reimbursement at ABC and Ángeles — both accept international patients, but billing procedures vary.</li>
+          <li>24/7 claims / assistance number saved into both phones before the flight.</li>
+        </ul>
+      </div>
+
+      <div class="altitude-item contacts">
+        <h4>Save in phone before boarding</h4>
+        <ul>
+          <li><a href="https://centromedicoabc.com/en/" target="_blank" rel="noopener">ABC Medical Center · Observatorio</a> — Sur 136 No. 116, Col. Las Américas · +52 55 5230 8000</li>
+          <li><a href="https://centromedicoabc.com/en/" target="_blank" rel="noopener">ABC Medical Center · Santa Fe</a> — Av. Carlos Graef Fernández 154 · +52 55 1103 1600</li>
+          <li><a href="https://hospitalangeles.com/pedregal" target="_blank" rel="noopener">Hospital Ángeles del Pedregal</a> — Camino de Santa Teresa 1055, Col. Héroes de Padierna</li>
+          <li><strong>Mondrian Condesa</strong> — Aguascalientes 156, Colonia Hipódromo Condesa, Cuauhtémoc, 06100, Ciudad de México</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2467,10 +2691,6 @@
   <div class="practical-inner">
     <h2>Practical notes.</h2>
     <div class="practical-grid">
-      <div class="practical-item">
-        <h4>Altitude</h4>
-        <p>7,350 ft. Hydrate hard the first day, pace the wine at Rosetta on Saturday, don't be surprised if Bellas Artes stairs feel steeper than they are.</p>
-      </div>
       <div class="practical-item">
         <h4>Transport</h4>
         <p>Uber and Didi. Cheap, safe, 15–25 min between any two neighborhoods on the plan. Centro is a straight shot up Av. Cuauhtémoc from Condesa.</p>
